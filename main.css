@@ -1,0 +1,993 @@
+#contest-links {
+    display: none;
+    position: absolute;
+    left: 0; width: 14em;
+    bottom: 1em; height: auto;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 1.5em;
+    z-index: 100500;
+}
+
+#contest-links a {
+    display: none;
+    text-decoration: underline;
+    color: #FFFFFF;
+}
+
+#game[data-scene="settings"] #contest-links {
+    left: 50%;
+    top: 66%;
+    bottom: auto;
+    margin-left: -7em;
+}
+
+@font-face {
+    font-family: "Audiowide";
+    src: url(assets/fonts/Audiowide-Regular.ttf);
+}
+
+html, body {
+    margin: 0; padding: 0;
+    background-color: #0B1027;
+    font-size: 1.2vmin;
+    font-family: Audiowide, sans-serif;
+    overflow: hidden;
+    position: fixed; left: 0; right: 0; top: 0; bottom: 0;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+#game {
+    position: absolute; left: 0; right: 0; top: 0; bottom: 0;
+}
+
+#canvas-wrapper {
+    position: absolute;
+}
+
+#canvas-wrapper canvas {
+    position: absolute; left: 0; right: 0; top: 0; bottom: 0;
+}
+
+.legal-links {
+    position: absolute;
+    left: 0; right: 0;
+    bottom: 0; height: auto;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 1.5rem;
+    z-index: 100500;
+    display: none;
+}
+
+.legal-links a {
+    display: inline-block;
+    text-decoration: underline;
+    color: #FFFFFF;
+}
+
+#legal-links-common {
+    display: block;
+}
+
+#legal-links-common.legal-links a {
+    margin: 0 0.5em;
+}
+
+#leaderboard-disclaimer {
+    position: absolute;
+    left: 5em; right: 5em;
+    bottom: 0; height: auto;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 1.5rem;
+    z-index: 100500;
+    text-transform: uppercase;
+    display: none;
+}
+
+#leaderboard-disclaimer a {
+    text-decoration: underline;
+    color: #FFFFFF;
+}
+
+#game[data-scene="leaderboard"] #leaderboard-disclaimer {
+    display: block;
+}
+
+#final-buttons {
+    display: none;
+    position: absolute;
+    z-index: 100;
+    left: 0; right: 0; bottom: 3rem; height: 12vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2vw;
+}
+
+#game[data-scene="defeat"] #final-buttons {
+    display: flex;
+    height: 6vw;
+}
+#game[data-scene="defeat"] #final-buttons .button-cell:nth-child(2) {
+    display: none;
+}
+#game[data-scene="defeat"] #final-buttons .secondary-row {
+    display: none;
+}
+#game[data-scene="victory"] #final-buttons {
+    display: flex;
+}
+#game[data-scene="victory"] #final-buttons .final-share-buttons {
+    justify-content: left;
+    padding-left: 1em;
+}
+
+#final-buttons > .buttons-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 3em;
+}
+
+#final-buttons > .buttons-row.main-row > .button-cell {
+    width: 12em;
+}
+
+#final-buttons .final-button {
+    color: #FFFFFF;
+    cursor: pointer;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 3em;
+    line-height: 3em;
+    text-align: center;
+}
+
+#final-buttons .final-share-buttons {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+#final-buttons .final-button.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+#final-buttons .final-button-leaderboard {
+    background-image: url(assets/images/UI/share/share-button.png);
+}
+#final-buttons .final-button-leaderboard:hover, #final-buttons .final-button-leaderboard:active {
+    background-image: url(assets/images/UI/share/share-button-pressed.png);
+}
+#final-buttons .final-button-leaderboard span {
+    font-size: 80%;
+}
+
+#final-buttons .final-button-restart {
+    background-image: url(assets/images/yellow-button.png);
+    color: #000000;
+    height: 3.5em; line-height: 3.5em; width: 12em;
+}
+#final-buttons .final-button-restart:hover, #final-buttons .final-button-restart:active {
+    color: #FFFFFF;
+    background-image: url(assets/images/yellow-button.png);
+}
+
+#final-buttons .final-button-facebook {
+    width: 4em;
+    background-image: url(assets/images/UI/share/facebook-share-button.png);
+}
+#final-buttons .final-button-facebook:hover, #final-buttons .final-button-facebook:active {
+    background-image: url(assets/images/UI/share/facebook-share-button-pressed.png);
+}
+
+#final-buttons .final-button-twitter {
+    width: 4em;
+    background-image: url(assets/images/UI/share/twitter-share-button.png);
+}
+#final-buttons .final-button-twitter:hover, #final-buttons .final-button-twitter:active {
+    background-image: url(assets/images/UI/share/twitter-share-button-pressed.png);
+}
+
+#final-buttons .final-button-contest {
+    background-image: url(assets/images/UI/share/share-button.png);
+    height: 3.5em; line-height: 3.5em; width: 12em;
+}
+#final-buttons .final-button-contest:hover, #final-buttons .final-button-contest:active {
+    background-image: url(assets/images/UI/share/share-button-pressed.png);
+}
+
+@media (min-aspect-ratio: 16/9) {
+    #final-buttons {
+        left: 0; right: 0; bottom: 3rem; height: 21.5vh;
+        font-size: 3.5vh;
+    }
+    #game[data-scene="defeat"] #final-buttons {
+        height: 10.5vh;
+    }
+}
+
+#store-links, #store-links > * {
+    display: block; position: absolute; box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+}
+
+#store-links {
+    right: 0; bottom: 0;
+    z-index: 100501;
+    width: 25vmin; height: 19vmin;
+    overflow: hidden;
+}
+
+#store-links .store-link {
+    outline: none;
+}
+
+#store-links .store-link-logo {
+    left: 0; right: 0; top: 0; height: 12vmin;
+    background-image: url(assets/images/logo.png);
+}
+#store-links .store-link-google-play {
+    right: 1vmin; width: 11vmin; top: 13vmin; height: 4vmin;
+    background-image: url(assets/images/UI/stores/google-play-button.png);
+}
+#store-links .store-link-app-store {
+    left: 1vmin; width: 11vmin; top: 13vmin; height: 4vmin;
+    background-image: url(assets/images/UI/stores/app-store-button.png);
+}
+
+#store-links.short {
+    height: 9vmin; width: 18vmin;
+}
+
+#store-links.short .store-link-logo {
+    height: 8vmin; left: 0; right: 0; width: auto;
+}
+
+#store-links.short .store-link-google-play, #store-links.short .store-link-app-store {
+    display: none;
+}
+
+@font-face {
+    font-family: "Audiowide";
+    src: url(assets/fonts/Audiowide-Regular.ttf);
+}
+
+html, body {
+    font-size: 1.2vmin;
+    font-family: Audiowide, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+#submission-form {
+    display: none;
+
+    position: absolute;
+    z-index: 100500;
+    overflow: hidden;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    font-family: Audiowide, sans-serif;
+    color: #FFFFFF;
+    text-align: center;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+#submission-form::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 0;
+    background-color: #000000;
+}
+
+#submission-form::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    background-image: url(assets/preload/start-back.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 0.3;
+}
+
+#submission-form .submission-form-wrapper {
+    position: absolute;
+    z-index: 2;
+    left: 50vw;
+    top: 45vh;
+    width: 45.0rem;
+    height: 56.6rem;
+    margin-left: -22.5rem;
+    margin-top: -28.3rem;
+    background-image: url(assets/images/submission-form/window.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+}
+
+#submission-form .close-button {
+    position: absolute;
+    right: -1.9rem;
+    top: 0.7rem;
+    width: 4.4rem;
+    height: 4.4rem;
+    background-image: url(assets/images/submission-form/close-button.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+#submission-form .close-button:active {
+    position: absolute;
+    right: -1.8rem;
+    top: 0.8rem;
+    width: 4rem;
+    height: 4rem;
+}
+
+#submission-form .terms {
+    font-size: 1.5rem;
+    position: absolute;
+    z-index: 2;
+    left: 20vw;
+    right: 20vw;
+    bottom: 1rem;
+    height: auto;
+    padding: 1rem;
+}
+
+#submission-form .terms a {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+#submission-form .form-title {
+    position: absolute;
+    top: 0.8rem;
+    left: 10rem;
+    right: 10rem;
+    height: auto;
+    text-align: center;
+    width: 50%;
+    margin: 1rem auto;
+    font-size: 2rem;
+    line-height: 2rem;
+}
+
+#submission-form .submit-button {
+    cursor: pointer;
+    position: absolute;
+    width: 23.7rem;
+    height: 5.7rem;
+    line-height: 5.7rem;
+    bottom: -4rem;
+    left: 50%;
+    margin-left: -11.85rem;
+    margin-top: -2.75rem;
+    border: 0;
+    outline: none;
+    background-color: transparent;
+    background-image: url(assets/images/submission-form/submission-button/submission-button.png),
+    url(assets/images/submission-form/submission-button/submission-button-pressed.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    font-family: Audiowide, sans-serif;
+}
+
+#submission-form .submit-button:active {
+    color: #FFFFFF;
+    background-image: url(assets/images/submission-form/submission-button/submission-button-pressed.png);
+}
+
+#submission-form .submit-button:focus, #submission-form .submit-button:hover {
+    color: #FFFFFF;
+}
+
+#submission-form .submit-button span {
+    font-size: 2.5rem;
+}
+
+#submission-form .submit-button:active span {
+    font-size: 2rem;
+}
+
+#submission-form form {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 8rem;
+    height: 45rem;
+}
+
+#submission-form fieldset, .fieldset-2-column {
+    text-align: center;
+    border: 0;
+    outline: none;
+    height: 5.5rem;
+    width: 39.7rem;
+    margin: 0 auto;
+    padding: 0;
+}
+
+#submission-form .fieldset-2-column {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: space-around;
+    width: 90%;
+}
+
+#submission-form .fieldset-2-column fieldset {
+    display: inline-block;
+    flex: 19.35rem 0 0;
+    height: 100%;
+}
+
+#submission-form fieldset .input-wrapper {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 3.3rem;
+    line-height: 3.3rem;
+    text-align: center;
+}
+
+#submission-form fieldset .input-wrapper::before {
+    display: block;
+    position: absolute;
+    z-index: -1;
+    content: "";
+    pointer-events: none;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 75%;
+    background-image: url(assets/images/submission-form/field-large/empty.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: auto 100%;
+    transition: background-image .2s;
+}
+
+#submission-form fieldset .input-wrapper::after {
+    display: block;
+    position: absolute;
+    z-index: -1;
+    content: "";
+    pointer-events: none;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    background-image: url(assets/images/submission-form/field-large/empty.png);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: auto 100%;
+    transition: background-image .2s;
+}
+
+#submission-form fieldset.filled .input-wrapper::before,
+#submission-form fieldset.filled .input-wrapper::after {
+    background-image: url(assets/images/submission-form/field-large/filled.png);
+}
+
+#submission-form fieldset.error .input-wrapper::before,
+#submission-form fieldset.error .input-wrapper::after {
+    background-image: url(assets/images/submission-form/field-large/error.png);
+}
+
+#submission-form fieldset.focused .input-wrapper::before,
+#submission-form fieldset.focused .input-wrapper::after {
+    background-image: url(assets/images/submission-form/field-large/selection.png),
+    url(assets/images/submission-form/field-large/selected.png);
+}
+
+
+#submission-form fieldset input, #submission-form fieldset select {
+    position: relative;
+    appearance: none;
+    margin: 0 auto;
+    padding: 0 0.5rem;
+    font-size: 2rem;
+    width: 100%;
+    height: 100%;
+    line-height: 3.3rem;
+    font-family: Audiowide, sans-serif;
+    color: #FFFFFF;
+    text-align: center;
+    text-align-last: center;
+    outline: none;
+    border: 0;
+    background-color: transparent;
+}
+
+#submission-form fieldset select {
+    font-size: 1.5rem;
+    text-align: left;
+    text-align-last: left;
+    padding-left: 1em;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus,
+select:-webkit-autofill:active {
+    border-radius: 0.2rem;
+    -webkit-box-shadow: 0 0 0 30px black inset !important;
+    -webkit-text-fill-color: #FFFFFF !important;
+}
+
+#submission-form select optgroup {
+    background-color: #0A0D1F;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+#submission-form select option {
+    background-color: #0A0D1F;
+    color: #CCCCCC;
+    font-weight: normal;
+}
+
+#submission-form select option[disabled] {
+    display: none;
+}
+
+input[type=date]::-webkit-datetime-edit {
+    padding: 1em;
+}
+
+input[type=date]::-webkit-datetime-edit-fields-wrapper {
+    background: transparent;
+}
+
+input[type=date]::-webkit-datetime-edit-text {
+    padding: 0 0.3em;
+}
+
+input[type=date]::-webkit-datetime-edit-month-field {
+}
+
+input[type=date]::-webkit-datetime-edit-day-field {
+}
+
+input[type=date]::-webkit-datetime-edit-year-field {
+}
+
+input[type=date]::-webkit-inner-spin-button {
+    display: none;
+}
+
+input[type=date]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    right: 1em;
+    background-color: transparent;
+    background-image: url(assets/images/submission-form/drop-down-button.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#submission-form fieldset input::selection {
+    background-color: transparent;
+    color: #FFFF00;
+}
+
+#submission-form fieldset input::placeholder {
+    text-align: center;
+    color: #CCCCCC;
+}
+
+#submission-form fieldset .error {
+    padding: 0;
+    margin: 0;
+    color: #FF0000;
+    font-size: 2rem;
+    height: 2.2rem;
+    line-height: 2.2rem;
+    display: none;
+}
+
+#submission-form fieldset.error .error {
+    display: block;
+}
+
+#submission-form .input-wrapper .dropdown-arrow {
+    display: block;
+    position: absolute;
+    top: 0; bottom: 0; right: 0.5rem; width: 3rem;
+    background-color: transparent;
+    background-image: url(assets/images/submission-form/drop-down-button.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    pointer-events: none;
+}
+
+#submission-form .links {
+    height: 2rem;
+    line-height: 2rem;
+    font-size: 1.5rem;
+}
+#submission-form .links a {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+#welcome-message {
+    display: none;
+
+    position: absolute;
+    z-index: 100500;
+    overflow: hidden;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    font-family: Audiowide, sans-serif;
+    color: #FFFFFF;
+    text-align: center;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+#welcome-message::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 0;
+    background-color: #000000;
+}
+
+#welcome-message::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    background-image: url(assets/preload/start-back.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+#welcome-message .welcome-message-wrapper {
+    z-index: 10;
+    display: block;
+    padding: 0; box-sizing: border-box;
+    position: absolute;
+    left: 50%; top: 50%; width: 45rem; height: 40rem;
+    margin-left: -22.5rem; margin-top: -20rem;
+}
+
+#welcome-message main {
+    display: block;
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    background-image: url(assets/images/welcome-message/welcome-window.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+}
+
+#welcome-message main header {
+    display: block;
+    position: absolute;
+    left: 0; right: 0; top: 0;
+    height: 7rem; line-height: 7rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+#welcome-message main article {
+    display: block;
+    padding: 0; margin: 0;
+    position: absolute;
+    left: 2rem; right: 2rem; top: 5.5rem; bottom: 9rem;
+    font-size: 1.6rem;
+    text-align: justify;
+    text-align-last: left;
+    color: rgb(1, 221, 253);
+}
+
+#welcome-message main article p {
+    margin-bottom: 1.5em;
+}
+
+#welcome-message main footer {
+    display: block;
+    position: absolute;
+    left: 0; right: 0; bottom: 1rem;
+    height: 11rem; line-height: 11rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+#welcome-message main footer .close-button {
+    cursor: pointer;
+    display: inline-block;
+    width: 23.7rem; height: 7rem; line-height: 7rem;
+    font-size: 2rem;
+    text-align: center;
+
+    background-image: url(assets/images/welcome-message/button.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    transition: transform 0.1s;
+}
+
+#welcome-message main footer .close-button:hover {
+    transform: scale(1.01);
+}
+#welcome-message main footer .close-button:active {
+    transform: scale(0.9);
+}
+
+#facebook-login-dialog {
+    display: none;
+
+    position: absolute;
+    z-index: 100500;
+    overflow: hidden;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    font-family: Audiowide, sans-serif;
+    color: #FFFFFF;
+    text-align: center;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+#facebook-login-dialog::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 0;
+    background-color: #000000;
+}
+
+#facebook-login-dialog::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    background-image: url(assets/preload/start-back.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+#facebook-login-dialog .facebook-login-dialog-wrapper {
+    z-index: 10;
+    display: block;
+    padding: 0; box-sizing: border-box;
+    position: absolute;
+    left: 50%; top: 50%; width: 45rem; height: 23rem;
+    margin-left: -22.5rem; margin-top: -20rem;
+}
+
+#facebook-login-dialog .facebook-login-dialog-wrapper main {
+    display: block;
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    background-image: url(assets/images/login/login-window.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+}
+
+#facebook-login-dialog .facebook-login-dialog-wrapper main header {
+    display: block;
+    position: absolute;
+    left: 0; right: 0; top: 0;
+    height: 7rem; line-height: 7rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+#facebook-login-dialog .facebook-login-dialog-wrapper main article {
+    display: block;
+    padding: 0; margin: 0;
+    position: absolute;
+    left: 3rem; right: 3rem; top: 5rem; bottom: 9rem;
+    line-height: 5rem;
+    font-size: 1.8rem;
+    text-align: center;
+    background-image: url(assets/images/login/login-message-backing.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+}
+
+#facebook-login-dialog .facebook-login-dialog-wrapper main article p {
+    margin-bottom: 1.5em;
+}
+
+#facebook-login-dialog .facebook-login-dialog-wrapper main footer {
+    display: block;
+    position: absolute;
+    left: 0; right: 0; bottom: 1rem;
+    height: 9rem; line-height: 9rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+#facebook-login-dialog .facebook-login-dialog-wrapper main footer .login-button {
+    cursor: pointer;
+    display: inline-block;
+    width: 23.7rem; height: 7rem; line-height: 7rem;
+    font-size: 2rem;
+    text-align: center;
+
+    background-image: url(assets/images/welcome-message/button.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    transition: transform 0.1s;
+}
+
+#facebook-login-dialog .facebook-login-dialog-wrapper main footer .login-button:hover {
+    transform: scale(1.01);
+}
+#facebook-login-dialog .facebook-login-dialog-wrapper main footer .login-button:active {
+    transform: scale(0.9);
+}
+
+#facebook-login-dialog .facebook-login-dialog-wrapper main footer .login-button .icon-facebook {
+    display: inline-block;
+    font-size: 2rem;
+    width: 1.5em;
+    height: 1.5em;
+    line-height: 1.5em;
+    margin-bottom: -0.3em;
+    margin-left: -0.2em;
+    text-align: center;
+    background-image: url(assets/images/login/facebook-icon.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+}
+
+#facebook-login-dialog .facebook-login-dialog-error {
+    z-index: 10;
+    display: block;
+    padding: 0; box-sizing: border-box;
+    position: absolute;
+    left: 50%; top: 50%; width: 45rem; height: 9rem;
+    margin-left: -22.5rem; margin-top: -10rem;
+}
+
+#facebook-login-dialog .facebook-login-dialog-error main {
+    display: block;
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    background-image: url(assets/images/login/error-window.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+}
+
+#facebook-login-dialog .facebook-login-dialog-error main header {
+    display: block;
+    position: absolute;
+    left: 0; right: 0; top: 1.3rem;
+    height: 2rem; line-height: 2rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+#facebook-login-dialog .facebook-login-dialog-error main article {
+    display: block;
+    padding: 0; margin: 0;
+    position: absolute;
+    left: 3rem;
+    right: 3rem;
+    top: 4rem;
+    bottom: 2.5rem;
+    line-height: 1.8rem;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+#facebook-login-dialog .facebook-login-dialog-error main article p {
+    margin-bottom: 1.5em;
+}
+
+#facebook-login-dialog .facebook-login-dialog-error main footer {
+    display: block;
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 3rem;
+    line-height: 3rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+#facebook-login-dialog .facebook-login-dialog-error main footer .close-button {
+    cursor: pointer;
+    display: inline-block;
+    width: 20rem;
+    height: 5rem;
+    line-height: 5rem;
+    font-size: 2rem;    text-align: center;
+
+    background-image: url(assets/images/welcome-message/button.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    transition: transform 0.1s;
+}
+
+#facebook-login-dialog .facebook-login-dialog-error main footer .close-button:hover {
+    transform: scale(1.01);
+}
+#facebook-login-dialog .facebook-login-dialog-error main footer .close-button:active {
+    transform: scale(0.9);
+}
+

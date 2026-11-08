@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Star Trek: Kobayashi Maru</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+    <meta property="og:url" content="https://www.kobayashimaru.com/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Star Trek: Kobayashi Maru"/>
+    <meta property="og:description" content="WARNING: UNWINNABLE"/>
+    <meta property="og:image" content="https://www.kobayashimaru.com/assets/images/share.jpg"/>
+    
+<link href="main.css" rel="stylesheet"></head>
+<body style="margin: 0; background-color: #0B1027">
+ 
+<div id="game" data-scene="welcome">
+    <div id="canvas-wrapper">
+        <div id="store-links">
+    <a target="_blank" href="https://play.google.com/store/apps/details?id=com.scopely.startrek&amp;hl=en&amp;gl=US" class="store-link store-link-logo"></a>
+    <a target="_blank" href="https://apps.apple.com/app/id1427744264?mt=8" class="store-link store-link-app-store"></a>
+    <a target="_blank" href="https://play.google.com/store/apps/details?id=com.scopely.startrek&amp;hl=en&amp;gl=US" class="store-link store-link-google-play"></a>
+</div>
+
+        <div id="final-buttons">
+    <div class="buttons-row main-row">
+        <div class="button-cell">
+            <div class="final-button final-button-leaderboard"><span>LEADERBOARD</span></div>
+        </div>
+        <div class="button-cell">
+            <div class="final-button final-button-restart"><span>START OVER</span></div>
+        </div>
+        <div class="button-cell final-share-buttons">
+            <div class="final-button final-button-facebook"><span></span></div>
+            <div class="final-button final-button-twitter"><span></span></div>
+        </div>
+    </div>
+    <div class="buttons-row secondary-row">
+        <div class="button-cell">
+            <div class="final-button final-button-contest"><span>ENTER CONTEST</span></div>
+        </div>
+    </div>
+</div>
+
+        <div id="welcome-message">
+    <div class="welcome-message-wrapper">
+        <main>
+            <header>
+                <span>WELCOME!</span>
+            </header>
+            <article>
+                <p>WELCOME, CADET TO THE KOBAYASHI MARU SIMULATION.</p>
+                <p>THINK YOU’VE GOT A SHOT AT SURVIVING THE UNIVERSES' MOST UNBEATABLE GAME AND SHOWING STAR FLEET YOU’RE CAPTAIN MATERIAL?</p>
+                <p>DON’T SAY WE DIDN’T WARN YOU: DEATH IS ALL BUT INEVITABLE. GOOD LUCK.</p>
+            </article>
+            <footer>
+                <div class="close-button">
+                    <span>CONTINUE</span>
+                </div>
+            </footer>
+        </main>
+    </div>
+</div>
+
+        <div id="legal-links-common" class="legal-links">
+    <a href="#" class="privacy-policy-link">PRIVACY POLICY</a>
+    <a href="#" class="tos-link">TERMS OF SERVICE</a>
+</div>
+<div id="contest-links" class="contest-links">
+    <a href="#" class="contest-overview-link">CONTEST OVERVIEW</a>
+    <a href="#" class="official-rules-link">OFFICIAL RULES</a>
+</div>
+<div id="leaderboard-disclaimer">
+    <span>Thanks for playing, cadets! Contest results are being tabulated and will be shared on our social channels at a later date.<br/>Leaderboard does not necessarily reflect contest results.</span>
+</div>
+
+        <div id="facebook-login-dialog">
+    <div class="facebook-login-dialog-wrapper">
+        <main>
+            <header>
+                <span>WELCOME</span>
+            </header>
+            <article>
+                <p>Please, login to continue</p>
+            </article>
+            <footer>
+                <div class="login-button">
+                    <span class="icon-facebook"></span><span>LOGIN</span>
+                </div>
+            </footer>
+        </main>
+    </div>
+    <div class="facebook-login-dialog-error">
+        <main>
+            <header>ERROR</header>
+            <article>You should be logged in to continue</article>
+            <footer>
+                <div class="close-button">RETRY</div>
+            </footer>
+        </main>
+    </div>
+</div>
+
+    </div>
+    <div id="submission-form">
+    <div class="submission-form-wrapper">
+        <div class="form-title">CONTEST SUBMISSION</div>
+        <form name="submission-form">
+            <input type="hidden" name="submissionId" value=""/>
+            <fieldset>
+                <div class="input-wrapper">
+                    <input name="nameFirst" type="text" placeholder="FIRST NAME"/>
+                </div>
+                <div class="error">Error message</div>
+            </fieldset>
+            <fieldset>
+                <div class="input-wrapper">
+                    <input name="nameLast" type="text" placeholder="LAST NAME"/>
+                </div>
+                <div class="error">Error message</div>
+            </fieldset>
+            <fieldset>
+                <div class="input-wrapper">
+                    <input name="birthdate" type="text" placeholder="BIRTH DATE" onfocus="(this.type='date')"/>
+                </div>
+                <div class="error">Error message</div>
+            </fieldset>
+            <fieldset>
+                <div class="input-wrapper">
+                    <input name="email" type="email" placeholder="E-MAIL"/>
+                </div>
+                <div class="error">Error message</div>
+            </fieldset>
+            <fieldset>
+                <div class="input-wrapper">
+                    <input name="address_1" type="text" placeholder="STREET"/>
+                </div>
+                <div class="error">Error message</div>
+            </fieldset>
+            <fieldset>
+                <div class="input-wrapper">
+                    <input name="address_2" type="text" placeholder="APT/UNIT#"/>
+                </div>
+                <div class="error">Error message</div>
+            </fieldset>
+            <fieldset>
+                <div class="input-wrapper">
+                    <input name="city" type="text" placeholder="CITY"/>
+                </div>
+                <div class="error">Error message</div>
+            </fieldset>
+            <div class="fieldset-2-column">
+                <fieldset>
+                    <div class="select input-wrapper">
+                        <select name="state">
+                            <option value="" disabled selected>STATE/REGION</option>
+                            <optgroup label="USA">
+                                <option value="Alabama">Alabama</option>
+                                <option value="Alaska">Alaska</option>
+                                <option value="Arizona">Arizona</option>
+                                <option value="Arkansas">Arkansas</option>
+                                <option value="California">California</option>
+                                <option value="Colorado">Colorado</option>
+                                <option value="Connecticut">Connecticut</option>
+                                <option value="Delaware">Delaware</option>
+                                <option value="District of Columbia">District of Columbia</option>
+                                <option value="Florida">Florida</option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="Hawaii">Hawaii</option>
+                                <option value="Idaho">Idaho</option>
+                                <option value="Illinois">Illinois</option>
+                                <option value="Indiana">Indiana</option>
+                                <option value="Iowa">Iowa</option>
+                                <option value="Kansas">Kansas</option>
+                                <option value="Kentucky">Kentucky</option>
+                                <option value="Louisiana">Louisiana</option>
+                                <option value="Maine">Maine</option>
+                                <option value="Maryland">Maryland</option>
+                                <option value="Massachusetts">Massachusetts</option>
+                                <option value="Michigan">Michigan</option>
+                                <option value="Minnesota">Minnesota</option>
+                                <option value="Mississippi">Mississippi</option>
+                                <option value="Missouri">Missouri</option>
+                                <option value="Montana">Montana</option>
+                                <option value="Nebraska">Nebraska</option>
+                                <option value="Nevada">Nevada</option>
+                                <option value="New Hampshire">New Hampshire</option>
+                                <option value="New Jersey">New Jersey</option>
+                                <option value="New Mexico">New Mexico</option>
+                                <option value="New York">New York</option>
+                                <option value="North Carolina">North Carolina</option>
+                                <option value="North Dakota">North Dakota</option>
+                                <option value="Ohio">Ohio</option>
+                                <option value="Oklahoma">Oklahoma</option>
+                                <option value="Oregon">Oregon</option>
+                                <option value="Pennsylvania">Pennsylvania</option>
+                                <option value="Rhode Island">Rhode Island</option>
+                                <option value="South Carolina">South Carolina</option>
+                                <option value="South Dakota">South Dakota</option>
+                                <option value="Tennessee">Tennessee</option>
+                                <option value="Texas">Texas</option>
+                                <option value="Utah">Utah</option>
+                                <option value="Vermont">Vermont</option>
+                                <option value="Virginia">Virginia</option>
+                                <option value="Washington">Washington</option>
+                                <option value="West Virginia">West Virginia</option>
+                                <option value="Wisconsin">Wisconsin</option>
+                                <option value="Wyoming">Wyoming</option>
+                            </optgroup>
+                            <optgroup label="Canada">
+                                <option value="Alberta">Alberta</option>
+                                <option value="British Columbia">British Columbia</option>
+                                <option value="Manitoba">Manitoba</option>
+                                <option value="New Brunswick">New Brunswick</option>
+                                <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+                                <option value="Northwest Territories">Northwest Territories</option>
+                                <option value="Nova Scotia">Nova Scotia</option>
+                                <option value="Nunavut">Nunavut</option>
+                                <option value="Ontario">Ontario</option>
+                                <option value="Prince Edward Island">Prince Edward Island</option>
+                                <option value="Saskatchewan">Saskatchewan</option>
+                                <option value="Yukon">Yukon</option>
+                            </optgroup>
+                            <optgroup label="Australia">
+                                <option value="South Australia">South Australia</option>
+                                <option value="Tasmania">Tasmania</option>
+                                <option value="Queensland">Queensland</option>
+                                <option value="Victoria">Victoria</option>
+                                <option value="Western Australia">Western Australia</option>
+                            </optgroup>
+                            <optgroup label="UK">
+                                <option value="East Midlands">East Midlands</option>
+                                <option value="East of England">East of England</option>
+                                <option value="Greater London">Greater London</option>
+                                <option value="North East">North East</option>
+                                <option value="North West">North West</option>
+                                <option value="Scotland">Scotland</option>
+                                <option value="South East">South East</option>
+                                <option value="South West">South West</option>
+                                <option value="Wales">Wales</option>
+                                <option value="West Midlands">West Midlands</option>
+                                <option value="Yorkshire and the Humber">Yorkshire and the Humber</option>
+                            </optgroup>
+                        </select>
+                        <div class="dropdown-arrow"></div>
+                    </div>
+                    <div class="error">Error message</div>
+                </fieldset>
+                <fieldset>
+                    <div class="input-wrapper">
+                        <input name="zip" type="text" placeholder="ZIP"/>
+                    </div>
+                    <div class="error">Error message</div>
+                </fieldset>
+            </div>
+            <div class="links">
+                <a href="#" class="official-rules-link">OFFICIAL RULES</a>
+            </div>
+        </form>
+        <button class="submit-button">
+            <span>ENTER NOW</span>
+        </button>
+        <div class="close-button"></div>
+    </div>
+    <div class="terms">
+        BY CLICKING <b>"ENTER NOW"</b>, I AGREE TO RECEIVE EMAIL UPDATES AND OFFERS FROM SCOPELY AND ITS AFFILIATES.
+        I HAVE READ AND AGREE TO SCOPELY’S <a href="#" class="privacy-policy-link">PRIVACY POLICY</a>
+        AND <a href="#" class="tos-link">TERMS OF SERVICE</a>.
+    </div>
+</div>
+
+</div>
+<div id="passages" style="background-color: #ff0000">
+    <noscript>
+        <div id="noscript">Please enable Javascript to play this story!</div>
+    </noscript>
+</div>
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: "281194753044874",
+            xfbml: true,
+            version: 'v9.0'
+        });
+        FB.AppEvents.logPageView();
+    };
+
+    /* removed by the offline kit: connect.facebook.net is a third-party auth endpoint the kit replaces locally */
+</script>
+
+<link rel="stylesheet" href="offline/kit.css">
+<script src="offline/kit.js"></script>
+<script type="text/javascript" src="main.js"></script></body>
+</html>

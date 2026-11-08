@@ -1,0 +1,213 @@
+/*
+ * Offline kit styling.
+ *
+ * The kit has to draw two things the original page drew with Facebook's own UI
+ * (the login popup) and with facebook.com/twitter.com (share), so it borrows the
+ * game's own artwork and metrics from main.css: same Audiowide type, same
+ * 45rem x 23rem window frame (assets/images/login/login-window.png), same
+ * message backing and button images, same white-on-#0B1027 palette.
+ *
+ * kit.css is served from /offline/, hence the ../assets/ prefixes.
+ */
+
+.km-offline-modal {
+  position: fixed;
+  left: 0; right: 0; top: 0; bottom: 0;
+  z-index: 100600;
+  overflow: hidden;
+  font-family: Audiowide, sans-serif;
+  color: #FFFFFF;
+  text-align: center;
+  user-select: none;
+}
+
+/* black + the game's own start backdrop, exactly like #facebook-login-dialog */
+.km-offline-modal::before {
+  position: absolute;
+  content: "";
+  left: 0; right: 0; top: 0; bottom: 0;
+  z-index: 0;
+  background-color: #000000;
+}
+.km-offline-modal::after {
+  position: absolute;
+  content: "";
+  left: 0; right: 0; top: 0; bottom: 0;
+  z-index: 1;
+  background-image: url(../assets/preload/start-back.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 0.55;
+}
+
+.km-window {
+  z-index: 10;
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 45rem; height: 26rem;
+  margin-left: -22.5rem; margin-top: -13rem;
+  box-sizing: border-box;
+  padding: 2.4rem 3rem 2rem;
+  background-image: url(../assets/images/login/login-window.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+.km-window header {
+  display: block;
+  font-size: 2rem;
+  line-height: 2.4rem;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.08em;
+}
+
+.km-copy {
+  font-size: 1.15rem;
+  line-height: 1.7rem;
+  margin: 0 0 1.4rem;
+  color: #dfe9ff;
+}
+.km-copy b { color: #FFFF00; font-weight: inherit; }
+
+.km-input {
+  display: block;
+  box-sizing: border-box;
+  width: 26rem;
+  max-width: 80%;
+  margin: 0 auto 1.4rem;
+  padding: 0.8rem 1rem;
+  font-family: Audiowide, sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.12em;
+  text-align: center;
+  color: #FFFFFF;
+  background-color: rgba(4, 10, 28, 0.75);
+  border: 0;
+  outline: 0;
+  box-shadow: inset 0 0 0 1px rgba(143, 211, 255, 0.45);
+}
+.km-input:focus { box-shadow: inset 0 0 0 1px #FFFF00; }
+.km-share-text { width: 92%; max-width: 92%; font-size: 1rem; letter-spacing: 0.02em; text-align: left; }
+
+.km-row { display: block; margin-top: 0.6rem; }
+
+.km-btn {
+  cursor: pointer;
+  display: inline-block;
+  width: 18rem; height: 5rem; line-height: 5rem;
+  margin: 0 0.6rem;
+  font-family: Audiowide, sans-serif;
+  font-size: 1.4rem;
+  color: #FFFFFF;
+  text-align: center;
+  border: 0;
+  background-image: url(../assets/images/welcome-message/button.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  transition: transform 0.1s;
+}
+.km-btn:hover { transform: scale(1.02); }
+.km-btn:active { transform: scale(0.92); }
+.km-btn.km-ghost {
+  background-image: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+  width: 12rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.km-note {
+  font-size: 0.9rem;
+  line-height: 1.3rem;
+  margin: 1.4rem 0 0;
+  color: rgba(223, 233, 255, 0.55);
+}
+
+.km-share-img {
+  display: block;
+  max-width: 24rem;
+  max-height: 12rem;
+  margin: 0 auto 1rem;
+  background-color: #000000;
+}
+
+/* ------------------------------------------------------------------ status */
+
+.km-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 6.5rem;
+  transform: translateX(-50%) translateY(1rem);
+  z-index: 100650;
+  max-width: 70vw;
+  padding: 0.9rem 1.6rem;
+  font-family: Audiowide, sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  color: #FFFFFF;
+  text-align: center;
+  background-color: rgba(4, 10, 28, 0.92);
+  box-shadow: 0 0 0 1px rgba(143, 211, 255, 0.5);
+  opacity: 0;
+  transition: opacity 0.35s, transform 0.35s;
+  pointer-events: none;
+}
+.km-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* Small status strip: which cadet this browser has registered, and a way to
+   clear the local save. Kept out of the game's own click targets. */
+.km-hud {
+  position: fixed;
+  right: 1rem;
+  bottom: 0.8rem;
+  z-index: 100600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.5rem;
+  font-family: Audiowide, sans-serif;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  color: rgba(223, 233, 255, 0.65);
+  background-color: rgba(4, 10, 28, 0.55);
+  box-shadow: 0 0 0 1px rgba(143, 211, 255, 0.25);
+}
+.km-hud-label {
+  padding: 0.15rem 0.4rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: #0B1027;
+  background-color: #faceb;
+}
+.km-hud-cadet { letter-spacing: 0.06em; }
+.km-hud-btn {
+  cursor: pointer;
+  font-family: Audiowide, sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: rgba(223, 233, 255, 0.8);
+  background: none;
+  border: 0;
+  padding: 0.2rem 0.35rem;
+  box-shadow: inset 0 0 0 1px rgba(143, 211, 255, 0.3);
+}
+.km-hud-btn:hover { color: #FFFF00; box-shadow: inset 0 0 0 1px #FFFF00; }
+
+/* The archived page's own login gate is kept - it is part of the game's flow
+   (no session -> the game shows this dialog, and the LOGIN button is what calls
+   FB.login()). Only its Facebook-specific parts are re-labelled: the Facebook
+   icon goes away and the wording says what actually happens here. */
+#facebook-login-dialog .login-button .icon-facebook {
+  background-image: none;
+  width: 0;
+  margin: 0;
+}
+#facebook-login-dialog article p { display: none; }
+#facebook-login-dialog article::after {
+  content: "THE FACEBOOK SERVICE THIS GAME SIGNED CADETS IN IS GONE. THIS RESTORATION REGISTERS YOU LOCALLY: PICK A CALLSIGN.";
+  display: block;
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+}
