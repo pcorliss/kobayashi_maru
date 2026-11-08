@@ -11,6 +11,10 @@ few months when its Facebook login broke. Years later the site was taken offline
 with help from a local LLM, replacing the Facebook login and the missing game API with a local
 stand-in. I hope you enjoy it.
 
+## Play it
+
+You can play it directly at [blog.50projects.com/kobayashi_maru](https://blog.50projects.com/kobayashi_maru/).
+
 ## Run it
 
 ```
